@@ -196,4 +196,12 @@ async def scrape_with_post(item: Item,req:Request):
     # time.sleep(3)
     return await root_run(q=item.q)
 
+@app.post("/sayan/")
+# async def scrape_with_post(item: Item,req:Request):
+async def scrape_with_post(item: Item,req:Request):
+
+    print("Sayan's Request")
+    print("q:",item.q)
+    return await root_run(q=item.q)
+
 
