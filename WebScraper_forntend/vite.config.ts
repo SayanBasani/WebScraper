@@ -9,6 +9,12 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
-    },
+    }
+  },
+  // add for other routs to allow to loads the site
+  preview: {
+    allowedHosts: ['webscraper-forntend.onrender.com'],
+    host: '0.0.0.0',
+    port: process.env.PORT || 4173
   },
 })
