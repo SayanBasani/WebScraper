@@ -204,4 +204,11 @@ async def scrape_with_post(item: Item,req:Request):
     print("q:",item.q)
     return await root_run(q=item.q)
 
+# add for problem of port
+if __name__ == "__main__":
+    import uvicorn
+    import os
+
+    port = int(os.environ.get("PORT", 8000))  # Render provides PORT env var
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
 
