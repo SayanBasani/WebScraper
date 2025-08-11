@@ -1,4 +1,4 @@
 .env
 *.json
-firebase_config.py
+# firebase_config.py
 node_modules
