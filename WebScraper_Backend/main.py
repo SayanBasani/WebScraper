@@ -12,7 +12,6 @@ from fastapi.responses import JSONResponse
 
 
 
-
 # Fix for Windows asyncio event loop policy
 if sys.platform == "win32":
     asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
@@ -20,10 +19,14 @@ if sys.platform == "win32":
 
 app = FastAPI()
 
+origins = [
+    "http://localhost:3000",  # your frontend local dev
+    "https://webscraper-forntend.onrender.com"  # production frontend
+]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
