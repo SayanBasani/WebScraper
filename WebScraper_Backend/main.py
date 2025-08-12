@@ -20,7 +20,7 @@ if sys.platform == "win32":
 app = FastAPI()
 
 origins = [
-    "http://localhost:3000",  # your frontend local dev
+    "http://localhost:5173",  # your frontend local dev
     "https://webscraper-forntend.onrender.com"  # production frontend
 ]
 
@@ -190,13 +190,16 @@ import time
 @app.post("/scrape/")
 # async def scrape_with_post(item: Item,req:Request):
 async def scrape_with_post(item: Item,req:Request):
+    query_url = item.q or item.url
+    if not query_url:
+        return {"error": "No q or url provided in body"}
+    
     print("request is hit in the scraper")
     res = await auth_check(req)
     print("res")
     print(res)
     email = res.get("firebase",{}).get("identities",{}).get("email",[None][0])
     # if not res["firebase"]['identities']['email'][0]:
-    print("email ->"+email)
     if not email:
         print("no email is required")
         return {"auth":False,"msg":"You need to Login"}
