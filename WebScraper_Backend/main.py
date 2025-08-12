@@ -42,9 +42,10 @@ async def login(token:TokenPayload):
     response = JSONResponse({"status":"ok","res":res},status_code=200)
     response.set_cookie(
         key="token",
+        secure=True,
         value=token.token,
         httponly=True,
-        samesite="Lax"
+        samesite="none"
     )
     print(token)
     return response
@@ -66,7 +67,7 @@ async def createAccount(token:TokenPayload):
 @app.get('/verify-auth/')
 async def auth_check(req: Request):
     token = req.cookies.get('token')
-    # print(token)
+    print(token)
     if not token:
         raise HTTPException(status_code=401 , detail="Not authenticated")
     try:
