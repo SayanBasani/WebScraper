@@ -6,7 +6,7 @@ export async function getSummery(URL: string) {
     const res: any = await axios.post(
       backend_Url + "/scrape/",
       { q: URL },
-      { withCredentials: true }
+      { withCredentials: true,headers: { "Content-Type": "application/json" } }
     );
     console.log(res);
     console.log(res.data);
