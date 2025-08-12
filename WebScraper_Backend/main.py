@@ -12,6 +12,7 @@ from fastapi.responses import JSONResponse
 
 
 
+
 # Fix for Windows asyncio event loop policy
 if sys.platform == "win32":
     asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
@@ -22,7 +23,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -30,6 +31,7 @@ app.add_middleware(
 
 class Item(BaseModel):
     q: str
+    url:str
 
 @app.post("/login/")
 async def login(token:TokenPayload):
