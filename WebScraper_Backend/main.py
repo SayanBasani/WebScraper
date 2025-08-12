@@ -190,11 +190,15 @@ import time
 @app.post("/scrape/")
 # async def scrape_with_post(item: Item,req:Request):
 async def scrape_with_post(item: Item,req:Request):
-
+    print("request is hit in the scraper")
     res = await auth_check(req)
+    print("res")
+    print(res)
     email = res.get("firebase",{}).get("identities",{}).get("email",[None][0])
     # if not res["firebase"]['identities']['email'][0]:
+    print("email ->"+email)
     if not email:
+        print("no email is required")
         return {"auth":False,"msg":"You need to Login"}
     print("User",res)
     print("q:",item.q)
