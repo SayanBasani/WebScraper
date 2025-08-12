@@ -191,6 +191,13 @@ import time
 # async def scrape_with_post(item: Item,req:Request):
 async def scrape_with_post(item: Item,req:Request):
     query_url = item.q or item.url
+    print("-----------------")
+    if item:
+        print(item)
+    print("item-----------------!")
+    if req:
+        print(req)
+    print("req-----------------!")
     if not query_url:
         return {"error": "No q or url provided in body"}
     
