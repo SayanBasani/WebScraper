@@ -33,8 +33,8 @@ app.add_middleware(
 )
 
 class Item(BaseModel):
-    q: str
-    url:str
+    q: Optional[str] = None
+    url:Optional[str] = None
 
 @app.post("/login/")
 async def login(token:TokenPayload):
