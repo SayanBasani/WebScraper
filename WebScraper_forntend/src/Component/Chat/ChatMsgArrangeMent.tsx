@@ -8,18 +8,18 @@ export default function ChatMsgArrangeMent() {
   return (
     <>
       <div className="grid gap-2">
-        {chatmsg.map((item: any) => {
+        {chatmsg.map((item: any, index: number) => {
           if (item.sendedBy == "user") {
             return (
               <>
-                <Chat_send data={item} />
+                <Chat_send data={item} key={item.id || index} />
               </>
             );
           }
           if (item.sendedBy == "ai") {
             return (
               <>
-                <Chat_recive data={item} />
+                <Chat_recive data={item} key={item.id || index} />
               </>
             );
           }
