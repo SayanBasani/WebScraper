@@ -84,7 +84,7 @@ async def logout(response: Response):
 # async def read_root(url: Optional[str] = Query(None, description="URL to scrape and summarize")):
 async def read_root(item:Item):
     url = item.url
-    print("hello")
+    print("sammary part")
     print(url)
     if not url:
         return {
