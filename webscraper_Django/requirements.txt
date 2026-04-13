@@ -1,0 +1,10 @@
+djangorestframework-simplejwt
+djangorestframework
+django-cors-headers
+openai
+google-genai
+selenium
+webdriver-manager
+yt-dlp
+gunicorn
+beautifulsoup4

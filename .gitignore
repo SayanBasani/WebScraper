@@ -1,0 +1,5 @@
+.env
+node_modules
+WebScraper_Backend/*
+*/.env
+WebScraper_forntend/node_modules

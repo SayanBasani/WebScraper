@@ -1,0 +1,36 @@
+.a{
+  border: 1px solid black;
+}
+.aa *{
+  border: 1px solid black;
+}
+.b{
+  border: 1px solid red;
+}
+.bb *{
+  border: 1px solid red;
+}
+.c{
+  border: 1px solid green;
+}
+.cc *{
+  border: 1px solid green;
+}
+
+
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+/* Scrollbar Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Scrollbar Thumb */
+::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 10px;
+}
